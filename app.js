@@ -33,10 +33,10 @@ class Planet {
     return ((this.mL + time) * Math.PI) / 180;
   }
   getX() {
-    return this.distMult * this.sMA * Math.cos(this.getCurrentPosition());
+    return this.distMult * this.sMA * Math.sin(this.getCurrentPosition());
   }
   getY() {
-    return this.distMult * this.sMA * Math.sin(this.getCurrentPosition());
+    return this.distMult * this.sMA * Math.cos(this.getCurrentPosition());
   }
 }
 
