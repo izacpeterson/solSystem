@@ -14,7 +14,7 @@ class Planet {
     this.name = name;
     this.oP = oP;
     this.mL = mL;
-    this.sMA = sMA + 1;
+    this.sMA = (sMA + 2) / 1;
     this.curAngle = 0;
     this.distMult = 20;
     // this.fromEpoch = 0;
@@ -56,37 +56,44 @@ let system = {
 // let system = {
 //   planets: [
 //     // Planet(360, 0, 200),
-//     new Planet("Mercury", 87.91, 252.25, 0.38),
-//     new Planet("Venus", 224.7, 181.98, 0.72),
-//     new Planet("Earth", 365.26, 100.46, 1),
-//     new Planet("Mars", 686.98, 355, 1.5),
-//     new Planet("Jupiter", 4332.59, 34.4, 5),
-//     new Planet("Saturn", 10759, 49.94, 9.5),
-//     new Planet("Uranus", 30685, 313.23, 19),
-//     new Planet("Neptune", 60189, 304.88, 30),
+//     new Planet("Mercury", 87.91, 252.25, 0.38, dayDIff),
+//     new Planet("Venus", 224.7, 181.98, 0.72, dayDIff),
+//     new Planet("Earth", 365.26, 100.46, 1, dayDIff),
+//     new Planet("Mars", 686.98, 355, 1.5, dayDIff),
+//     new Planet("Jupiter", 4332.59, 34.4, 5, dayDIff),
+//     new Planet("Saturn", 10759, 49.94, 9.5, dayDIff),
+//     new Planet("Uranus", 30685, 313.23, 19, dayDIff),
+//     new Planet("Neptune", 60189, 304.88, 30, dayDIff),
 //   ],
 // };
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
+let scaleVal = 1;
 function draw() {
+  scale(scaleVal);
+  translate(width / 2, height / 2);
   fill(0, 0);
+
   background(0, 255);
   stroke("#FFFF00");
   strokeWeight(1);
-  ellipse(width / 2, height / 2, 20, 20);
+  ellipse(0, 0, 20, 20);
 
   for (planet of system.planets) {
+    fill(0, 0);
+
     stroke(200);
 
     // planet.fromEpoch += 5;
     ellipse(
-      width / 2,
-      height / 2,
+      0,
+      0,
       planet.sMA * planet.distMult * 2,
       planet.sMA * planet.distMult * 2
     );
-    ellipse(planet.getX() + width / 2, planet.getY() + height / 2, 10, 10);
+    fill(255);
+    ellipse(planet.getX(), planet.getY(), 10, 10);
   }
 }

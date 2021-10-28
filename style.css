@@ -13,7 +13,11 @@ h1,
 h2 {
   color: white;
   font-weight: 200;
+  z-index: 5;
+  position: relative;
 }
-h2 {
+canvas {
   position: fixed;
+  top: 0;
+  z-index: 0;
 }
