@@ -1,6 +1,42 @@
-let today = new Date();
-let dateDOM = document.querySelector("#date");
-dateDOM.innerHTML = today.toLocaleDateString();
+// let today = new Date();
+// let dateDOM = document.querySelector("#date");
+// dateDOM.innerHTML = today.toLocaleDateString();
+
+// document.querySelector(
+//   "#dateSelect"
+// ).value = `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`;
+
+document.querySelector("#dateSelect").addEventListener("change", () => {
+  let today = new Date(document.querySelector("#dateSelect").value);
+
+  let epoch = new Date("01/01/2000");
+
+  let dateDiff = today - epoch;
+
+  let dayDIff = dateDiff / (1000 * 3600 * 24);
+
+  system = {
+    planets: [
+      // Planet(360, 0, 200),
+      new Planet("Mercury", 87.91, 252.25, 1, dayDIff),
+      new Planet("Venus", 224.7, 181.98, 2, dayDIff),
+      new Planet("Earth", 365.26, 100.46, 3, dayDIff),
+      new Planet("Mars", 686.98, 355, 4, dayDIff),
+      new Planet("Jupiter", 4332.59, 34.4, 5, dayDIff),
+      new Planet("Saturn", 10759, 49.94, 6, dayDIff),
+      new Planet("Uranus", 30685, 313.23, 7, dayDIff),
+      new Planet("Neptune", 60189, 304.88, 8, dayDIff),
+    ],
+  };
+
+  draw();
+});
+
+document.querySelector("#dateSelect").value = `${
+  new Date().toISOString().split("T")[0]
+}`;
+
+let today = new Date(document.querySelector("#dateSelect").value);
 
 let epoch = new Date("01/01/2000");
 

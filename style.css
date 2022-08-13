@@ -16,8 +16,25 @@ h2 {
   z-index: 5;
   position: relative;
 }
+body {
+}
 canvas {
   position: fixed;
   top: 0;
   z-index: 0;
+}
+input {
+  z-index: 5;
+  font-size: 16px;
+  padding: 5px;
+  /* background-color: black;
+  color: white; */
+  border: none;
+}
+#topBar {
+  display: flex;
+  justify-content: space-between;
+}
+::-webkit-calendar-picker-indicator {
+  /* background: orange; */
 }
